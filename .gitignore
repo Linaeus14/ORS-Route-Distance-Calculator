@@ -16,9 +16,7 @@ config.json
 coordinates.json
 
 # State files
-data/ors_routes_backup.csv
-data/completed_pairs.json
-data/skipped_no_route.json
+data/
 
 # Exported files
 export/
