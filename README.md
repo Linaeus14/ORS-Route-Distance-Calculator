@@ -19,17 +19,20 @@ It generates all possible route permutations between the listed locations. For e
 ## Setup
 
 1. **Install Python**
-Download and install Python from the official website: [Download Python](https://www.python.org/downloads/))
+
+    Download and install Python from the official website: [python.org](https://www.python.org/downloads/)
 
 2. **Install Dependencies**
-All dependencies are automatically installed via `App.bat`, but for reference, the script uses:
+
+    All dependencies are automatically installed via `App.bat`, but for reference, the script uses:
    - openrouteservice
    - pandas
    - tqdm
 
 3. **Configure the API Key**
-Obtain an API key from the OpenRouteService Dashboard: https://openrouteservice.org/ (requires login).
-Copy it into the `example_config.json` file and rename it to `config.json`:
+
+    Obtain an API key from the OpenRouteService Dashboard: [openrouteservice.org](https://openrouteservice.org/) (requires login).
+    Copy it into the `example_config.json` file and rename it to `config.json`:
 
     ```json
     {
@@ -38,19 +41,21 @@ Copy it into the `example_config.json` file and rename it to `config.json`:
     ```
 
 4. **Add Coordinates**
-Create or modify the `coordinates.json` file in the root directory. Refer to `example_coordinates.json` for the correct format (name, latitude, longitude).
+
+    Create or modify the `coordinates.json` file in the root directory. Refer to `example_coordinates.json` for the correct format (name, latitude, longitude).
 
 ## How to Run
 
 1. **Download and Extract**
-Download the ZIP source code and extract it to your desktop.
+
+    Download the ZIP source code and extract it to your desktop.
 
 2. **Run the Script**
+
    - Double-click `App.bat`
+   - Alternatively, if you're using an IDE, you can run `Script.py` directly (make sure Python is installed).
    - Or run it from the command line:
 
         ```cmd
         App.bat
         ```
-
-- Alternatively, if you're using an IDE, you can run `Script.py` directly (make sure Python is installed).
