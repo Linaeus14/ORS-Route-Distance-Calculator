@@ -46,14 +46,14 @@ towns = [(t["name"], t["coords"][::-1])
 # Load or initialize completed_pairs
 if os.path.exists(PAIR_STATE_FILE):
     with open(PAIR_STATE_FILE, "r", encoding="utf-8") as f:
-        completed_pairs = set(tuple(pair) for pair in json.load(f))
+        completed_pairs = {tuple(pair) for pair in json.load(f)}
 else:
     completed_pairs = set()
 
 # Load skipped pairs to avoid retrying known no-routes
 if os.path.exists(SKIPPED_FILE):
     with open(SKIPPED_FILE, "r", encoding="utf-8") as f:
-        skipped_pairs = set(tuple(pair) for pair in json.load(f))
+        skipped_pairs = {tuple(pair) for pair in json.load(f)}
 else:
     skipped_pairs = set()
 
