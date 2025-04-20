@@ -68,9 +68,12 @@ if os.path.exists(CSV_FILENAME) and not completed_pairs:
 # Prepare all permutations
 pairs = [(from_town, to_town) for from_town in towns for to_town in towns]
 all_routes = []
+exit = False
 counter = 0
 
 for (from_name, from_coords), (to_name, to_coords) in tqdm(pairs, desc="Processing"):
+    if exit:
+        break
     if (from_name, to_name) in completed_pairs or (from_name, to_name) in skipped_pairs:
         continue
 
@@ -102,20 +105,28 @@ for (from_name, from_coords), (to_name, to_coords) in tqdm(pairs, desc="Processi
 
         except ApiError as e:
             err_str = str(e).lower()
-            if 'Could not find' in err_str or '2010' in err_str:
-                print(f"No route or invalid location: {from_name} -> {to_name}. Skipping.")
+            if 'could not find' in err_str or '2010' in err_str:
+                print(f"\nNo route or invalid location: {from_name} -> {to_name}. Skipping.")
                 skipped_pairs.add((from_name, to_name))
+                break
+            elif 'quota exceeded' in err_str:
+                os.system("cls" if os.name == "nt" else "clear")
+                print(f"\nQuota exceeded for the API: {ORS_API_KEY}.\n  Saving data and exporting from the last iteration.\n")
+                time.sleep(3)
+                print("Terminating in 5s. Please wait until the API quota reset before continuing from last save.\n")
+                time.sleep(5)
+                exit = True
                 break
             else:
                 attempts += 1
                 wait = RETRY_BACKOFF ** attempts
-                print(f"API Error {from_name} -> {to_name}: {e}, retrying in {wait}s")
+                print(f"\nAPI Error {from_name} -> {to_name}: {e}, retrying in {wait}s")
                 time.sleep(wait)
 
         except Exception as e:
             attempts += 1
             wait = RETRY_BACKOFF ** attempts
-            print(f"Unexpected error {from_name} -> {to_name}: {e}, retrying in {wait}s")
+            print(f"\nUnexpected error {from_name} -> {to_name}: {e}, retrying in {wait}s")
             time.sleep(wait)
 
     if counter >= SAVE_INTERVAL:

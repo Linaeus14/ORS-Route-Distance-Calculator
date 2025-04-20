@@ -93,10 +93,12 @@ cls
 echo ===========================
 echo Help:
 echo ===========================
-echo 1. This tool helps you calculate motorcycle route distances.
-echo 2. It checks and installs required Python dependencies.
-echo 3. Option 1 runs the calculator and auto-generates a timestamped export.
+echo 1. This script checks and installs required Python dependencies.
+echo 3. Option 1 runs the calculator.
 echo 4. Option 2 resets only the progress data (pairs, skips), not the final export.
-echo 5. Make sure towns.json exists in the working folder.
+echo 5. Ensure you have a valid OpenRouteService API key in config.json.
+echo 6. The script has an auto save every succesful route calcualation.
+echo 7. You can continue the progress if it's interupted or terminated.
+echo 7. Make sure coordinates.json exists in the working folder.
 pause
 goto MENU
