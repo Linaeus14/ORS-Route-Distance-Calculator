@@ -1,6 +1,6 @@
 # ORS Route Distance Calculator
 
-This Python script calculates and exports driving distances and estimated travel times between a list of towns using the OpenRouteService API.
+This Python script calculates and exports driving distances and estimated travel times between a list of places using the OpenRouteService API.
 
 ## Features
 
@@ -27,14 +27,14 @@ This Python script calculates and exports driving distances and estimated travel
     }
     ```
 
-3. Place your `coordinates.json` file in the root directory, check `example_coordinates.json` for the format of name, Latitude, and longitude.
+3. Place/Make your `coordinates.json` file in the root directory, check `example_coordinates.json` for the format of name, latitude, and longitude.
 
 ## Run
 
-Run the App.bat on your cmd or just open it normally by double clicking:
+Open it normally by double clicking or Run the App.bat on your cmd:
 
 ```cmd
 App.bat
 ```
 
-Alternatively you can run Script.py if you have an IDE with the interperter installed.
+Alternatively you can run Script.py if you have an IDE with a pyhon interperter installed.
