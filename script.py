@@ -21,8 +21,8 @@ ORS_API_KEY = config["ORS_API_KEY"]
 SAVE_INTERVAL = 10
 TIMESTAMP = sys.argv[1] if len(sys.argv) > 1 else datetime.now().strftime("%d-%m-%Y_%H.%M.%S")
 CSV_FILENAME = "data/ors_routes_backup.csv"
-EXCEL_FILENAME = f"export/ors_routes_{TIMESTAMP}.xlsx"
-SUMMARY_FILENAME = f"export/ors_routes_summary_{TIMESTAMP}.xlsx"
+EXCEL_FILENAME = f"export/{TIMESTAMP}/ors_routes_{TIMESTAMP}.xlsx"
+SUMMARY_FILENAME = f"export/{TIMESTAMP}/ors_routes_summary_{TIMESTAMP}.xlsx"
 PAIR_STATE_FILE = "data/completed_pairs.json"
 SKIPPED_FILE = "data/skipped_no_route.json"
 RETRY_LIMIT = 5
@@ -34,6 +34,7 @@ PROFILE = "driving-car"
 # Ensure the data and export folders exist
 os.makedirs("data", exist_ok=True)
 os.makedirs("export", exist_ok=True)
+os.makedirs(f"export/{TIMESTAMP}", exist_ok=True)
 
 client = openrouteservice.Client(key=ORS_API_KEY)
 
