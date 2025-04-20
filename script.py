@@ -87,14 +87,13 @@ for (from_name, from_coords), (to_name, to_coords) in tqdm(pairs, desc="Processi
             leg = route['routes'][0]['segments'][0]
             steps = leg.get('steps', [])
 
-            for step in steps:
-                all_routes.append({
-                    'From': from_name,
-                    'To': to_name,
-                    'Instruction': step['instruction'],
-                    'Distance': f"{step['distance'] / 1000:.2f} km",
-                    'Time': f"{step['duration'] / 60:.1f} min"
-                })
+            all_routes.extend([{
+                'From': from_name,
+                'To': to_name,
+                'Instruction': step['instruction'],
+                'Distance': f"{step['distance'] / 1000:.2f} km",
+                'Time': f"{step['duration'] / 60:.1f} min"
+            } for step in steps])
 
             completed_pairs.add((from_name, to_name))
             success = True
