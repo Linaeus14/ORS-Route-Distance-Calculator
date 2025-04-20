@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+env/
+.venv/
+
+# VSCode
+.vscode/
+
+# Code History
+.history/
+
+# API Key and Data
+config.json
+coordinates.json
+
+# State files
+data/ors_routes_backup.csv
+data/completed_pairs.json
+data/skipped_no_route.json
+
+# Exported files
+export/
