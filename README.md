@@ -31,10 +31,11 @@ This Python script calculates and exports driving distances and estimated travel
 
 ## Run
 
-Open it normally by double clicking or Run the App.bat on your cmd:
+1. Download source code zip and extract it into your desktop.
+2. Open it normally by double clicking or Run the App.bat on your cmd:
 
-```cmd
-App.bat
-```
+    ```cmd
+    App.bat
+    ```
 
-Alternatively you can run Script.py if you have an IDE with a pyhon interperter installed.
+    Alternatively you can run Script.py if you have an IDE with a pyhon interperter installed.
