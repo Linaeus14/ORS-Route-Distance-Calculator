@@ -12,15 +12,14 @@ This Python script calculates and exports driving distances and estimated travel
 
 ## Setup
 
-1. Install requirements:
-    - python
+1. Install python: [Python](https://www.python.org/downloads/)
 
-   Python Depedency (Auto Install is included in App.bat):
+    Python Depedency (Auto Install is included in App.bat):
     - openrouteservice
     - pandas
     - tqdm
 
-2. Add your OpenRouteService API key to `example_config.json` then rename it into `config.json`:
+2. Add your OpenRouteService API key from thier [API Dashboard](https://openrouteservice.org/) (require login) to `example_config.json` then rename it into `config.json`:
 
     ```JSON
     {
