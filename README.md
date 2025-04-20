@@ -31,7 +31,7 @@ This Python script calculates and exports driving distances and estimated travel
 
 ## Run
 
-Run the App.bat on your cmd:
+Run the App.bat on your cmd or just open it normally by double clicking:
 
 ```cmd
 App.bat

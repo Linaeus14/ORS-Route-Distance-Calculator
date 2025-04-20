@@ -3,43 +3,52 @@
 
 :: Check for Python installation
 echo Checking if Python is installed...
-python --version >nul 2>nul
+cmd /c python --version >nul 2>nul
 IF %ERRORLEVEL% NEQ 0 (
     echo Python is not installed. Installing Python...
     start https://www.python.org/downloads/
     echo Please install Python and rerun this script.
-    exit /b
+    pause
+    exit
 )
 
 :: Check for required Python packages
 echo Checking for required Python packages...
 
-:: openrouteservice (ensure full install for exception module)
-python -c "import openrouteservice; from openrouteservice import exceptions" >nul 2>nul
+:: openrouteservice
+cmd /c python -m pip show openrouteservice >nul 2>nul
 IF %ERRORLEVEL% NEQ 0 (
-    echo openrouteservice or its submodules are missing. Installing now...
-    pip install --upgrade openrouteservice
+    echo openrouteservice is not installed. Installing now...
+    cmd /c pip install --upgrade openrouteservice
+    echo Please wait while openrouteservice is being installed...
+    pause
 )
 
 :: pandas
-python -c "import pandas" >nul 2>nul
+cmd /c python -m pip show pandas >nul 2>nul
 IF %ERRORLEVEL% NEQ 0 (
-    echo pandas is missing. Installing now...
-    pip install pandas
+    echo pandas is not installed. Installing now...
+    cmd /c pip install pandas
+    echo Please wait while pandas is being installed...
+    pause
 )
 
 :: tqdm
-python -c "import tqdm" >nul 2>nul
+cmd /c python -m pip show tqdm >nul 2>nul
 IF %ERRORLEVEL% NEQ 0 (
-    echo tqdm is missing. Installing now...
-    pip install tqdm
+    echo tqdm is not installed. Installing now...
+    cmd /c pip install tqdm
+    echo Please wait while tqdm is being installed...
+    pause
 )
 
 :: requests
-python -c "import requests" >nul 2>nul
+cmd /c python -m pip show requests >nul 2>nul
 IF %ERRORLEVEL% NEQ 0 (
-    echo requests is missing. Installing now...
-    pip install requests
+    echo requests is not installed. Installing now...
+    cmd /c pip install requests
+    echo Please wait while requests is being installed...
+    pause
 )
 
 :: Menu for the user to select actions
@@ -65,7 +74,7 @@ goto MENU
 :RUN_SCRIPT
 cls
 echo Running the OpenRouteService distance calculation...
-python script.py
+cmd /c python script.py
 echo Distance calculation completed. Check the export folder for output.
 pause
 goto MENU
