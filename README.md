@@ -27,7 +27,7 @@ This Python script calculates and exports driving distances and estimated travel
     }
     ```
 
-3. Place your `coordinates.json` file in the root directory, check `example_coordinates.json` for the format.
+3. Place your `coordinates.json` file in the root directory, check `example_coordinates.json` for the format of name, Latitude, and longitude.
 
 ## Run
 
