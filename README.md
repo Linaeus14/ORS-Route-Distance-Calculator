@@ -18,18 +18,16 @@ It generates all possible route permutations between the listed locations. For e
 
 ## Setup
 
-1. **Install Python**
+1. **Install Python (No need to install if using App.exe)**
 
     Download and install Python from the official website: [python.org](https://www.python.org/downloads/)
 
-2. **Install Dependencies**
-
-    All dependencies are automatically installed via `App.bat`, but for reference, the script uses:
+    All dependencies are automatically installed via `App.bat` and are bundled into `App.exe`, but for reference, the script uses:
    - openrouteservice
    - pandas
    - tqdm
 
-3. **Configure the API Key**
+2. **Configure the API Key**
 
     Obtain an API key from the OpenRouteService Dashboard: [openrouteservice.org](https://openrouteservice.org/) (requires login).
     Copy it into the `example_config.json` file and rename it to `config.json`:
@@ -40,22 +38,37 @@ It generates all possible route permutations between the listed locations. For e
     }
     ```
 
-4. **Add Coordinates**
+3. **Add Coordinates**
 
-    Create or modify the `coordinates.json` file in the root directory. Refer to `example_coordinates.json` for the correct format (name, latitude, longitude).
+    Create or modify the `coordinates.json` file in the root directory. Refer to `example_coordinates.json` for the correct format (name, latitude, longitude):
+
+    ```json
+    [
+        { "name": "Location A", "coords": [-1.277472, 116.83025] },
+        { "name": "Location B", "coords": [-1.269167, 116.832861] }
+    ]
+    ```
 
 ## How to Run
 
 1. **Download and Extract**
 
-    Download the ZIP source code and extract it to your desktop.
+    Download the ZIP source code or the `App.exe` release from the GitHub Releases page and extract it to your desktop.
 
 2. **Run the Script**
 
-   - Double-click `App.bat`
-   - Alternatively, if you're using an IDE, you can run `Script.py` directly (make sure Python is installed).
-   - Or run it from the command line:
+   - **Option 1: Using the `.bat` file**
+     - Ensure that `coordinates.json` and `config.json` are in the same directory as the `App.bat` file.
+     - Double-click `App.bat`
+     - Alternatively, if you're using an IDE, you can run `Script.py` directly (make sure Python and dependencies are installed).
+     - Or run it from the command line:
 
         ```cmd
         App.bat
         ```
+
+   - **Option 2: Using the release application**
+     - Ensure that `coordinates.json` and `config.json` are in the same directory as the `App.exe` file.
+     - Double-click `App.exe` to run the program.
+
+Both options function the same way and require the `coordinates.json` and `config.json` files in the root folder.

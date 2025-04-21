@@ -42,15 +42,6 @@ IF %ERRORLEVEL% NEQ 0 (
     pause
 )
 
-:: requests
-cmd /c python -m pip show requests >nul 2>nul
-IF %ERRORLEVEL% NEQ 0 (
-    echo requests is not installed. Installing now...
-    cmd /c pip install requests
-    echo Please wait while requests is being installed...
-    pause
-)
-
 :: Menu for the user to select actions
 :MENU
 cls

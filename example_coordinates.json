@@ -1,7 +1,7 @@
 [
   { "name": "Location Name", "coords": [-1.277472, 116.83025] },
   {
-    "name": "Don't forget to change this file name into coordinates.json",
+    "name": "Note: Don't forget to change this file name into coordinates.json",
     "coords": [-1.269167, 116.832861]
   }
 ]
